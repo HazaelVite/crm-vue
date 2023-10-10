@@ -46,9 +46,9 @@ import Heading from "../components/general/Heading.vue";
             type="text"
             label="Telefono"
             placeholder="Teléfono: XXX-XXX-XXXX"
-            validation="required"
+            validation="*matches:/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/"
             :validation-messages="{
-              required: 'El teléfono del cliente es obligatorio',
+              matches: 'El teléfono no cumple el formato',
             }"
           />
         </FormKit>
