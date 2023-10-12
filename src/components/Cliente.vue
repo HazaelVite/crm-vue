@@ -24,14 +24,14 @@ const nombreCliente = computed(() => {
       <p class="text-gray-600">{{ cliente.puesto }}</p>
     </td>
     <td class="whitespace-nowrap px-3 py-4 text-sm"></td>
-    <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+    <td class="flex px-3 py-4 text-sm text-gray-500 gap-x-2">
       <RouterLink
         to="/agregar-cliente"
-        class="bg-indigo-600 hover:bg-indigo-900 text-white uppercase text-xs font-medium rounded px-3 py-2 mr-3"
+        class="bg-indigo-600 hover:bg-indigo-900 text-white uppercase text-xs font-medium rounded px-2 py-1"
         >Editar</RouterLink
       >
       <button
-        class="border border-red-600 hover:border-red-900 text-red-600 hover:text-red-900 uppercase text-xs font-medium rounded px-3 py-2"
+        class="border border-red-600 hover:border-red-900 text-red-600 hover:text-red-900 uppercase text-xs font-medium rounded px-2 py-1"
       >
         Eliminar
       </button>

@@ -1,15 +1,16 @@
 <script setup>
 import { FormKit } from "@formkit/vue";
-import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router';
+import axios from '../config/axios';
 import RouterLink from "../components/general/RouterLink.vue";
 import Heading from "../components/general/Heading.vue";
-import axios from 'axios';
+
 
 const router = useRouter();
 
 const handleSubmit = (data) => {
   console.log(data);
-  axios.post('http://localhost:4000/clientes', data)
+  axios.post('/clientes', data)
     .then(res => {
       console.log(res)
       // Redireccionar con vue router
