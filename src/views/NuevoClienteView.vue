@@ -1,11 +1,22 @@
- <script setup>
+<script setup>
 import { FormKit } from "@formkit/vue";
+import { useRouter } from 'vue-router'
 import RouterLink from "../components/general/RouterLink.vue";
 import Heading from "../components/general/Heading.vue";
+import axios from 'axios';
+
+const router = useRouter();
 
 const handleSubmit = (data) => {
   console.log(data);
-}
+  axios.post('http://localhost:4000/clientes', data)
+    .then(res => {
+      console.log(res)
+      // Redireccionar con vue router
+      router.push({ name: 'inicio' });
+    })
+    .catch(err => console.error(err))
+};
 </script>
 
 <template>
@@ -17,10 +28,11 @@ const handleSubmit = (data) => {
 
     <div class="mx-auto mt-10 bg-white shadow">
       <div class="mx-auto md:w-2/3 py-20 px-6">
-        <FormKit type="form" 
-        submit-label="Agregar Cliente"
-        incomplete-message="No se pudo enviar, revisa los mensajes"
-        @submit="handleSubmit"
+        <FormKit
+          type="form"
+          submit-label="Agregar Cliente"
+          incomplete-message="No se pudo enviar, revisa los mensajes"
+          @submit="handleSubmit"
         >
           <FormKit
             type="text"
@@ -50,7 +62,7 @@ const handleSubmit = (data) => {
             validation="required|email"
             :validation-messages="{
               required: 'El email del cliente es obligatorio',
-              email: 'El formato del email no es correcto'
+              email: 'El formato del email no es correcto',
             }"
           />
           <FormKit
@@ -82,7 +94,7 @@ const handleSubmit = (data) => {
 </template>
 
 <style>
-  .formkit-wrapper {
-    width: 100% !important;
-  }
+.formkit-wrapper {
+  width: 100% !important;
+}
 </style>

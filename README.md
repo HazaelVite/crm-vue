@@ -27,3 +27,9 @@ npm run dev
 ```sh
 npm run build
 ```
+
+
+### Comandos del curso
+```sh
+json-server --watch db.json --port 4000
+```
