@@ -1,7 +1,7 @@
 <script setup>
 import { FormKit } from "@formkit/vue";
 import { useRouter } from 'vue-router';
-import axios from '../config/axios';
+import ClienteService from "../services/ClienteService";
 import RouterLink from "../components/general/RouterLink.vue";
 import Heading from "../components/general/Heading.vue";
 
@@ -9,10 +9,9 @@ import Heading from "../components/general/Heading.vue";
 const router = useRouter();
 
 const handleSubmit = (data) => {
-  console.log(data);
-  axios.post('/clientes', data)
+  data.estado = 1;
+  ClienteService.agregarCliente(data)
     .then(res => {
-      console.log(res)
       // Redireccionar con vue router
       router.push({ name: 'inicio' });
     })
