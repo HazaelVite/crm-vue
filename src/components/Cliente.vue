@@ -37,7 +37,7 @@ const estadoCliente = computed(() => {
     </td>
     <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500 gap-x-2">
       <RouterLink
-        to="/agregar-cliente"
+        :to="{ name: 'editar-cliente', params: { id: cliente.id } }"
         class="bg-indigo-600 hover:bg-indigo-900 text-white uppercase text-xs font-medium rounded px-2 py-1 mr-1"
         >Editar</RouterLink
       >
