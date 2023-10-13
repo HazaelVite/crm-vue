@@ -11,7 +11,7 @@ onMounted(() => {
   // Con promesa
   ClienteService.obtenerClientes()
     .then(({ data }) => (clientes.value = data))
-    .catch((err) => console.log("Error"));
+    .catch((err) => console.log("Error Obtener"));
 });
 
 const existenClientes = computed(() => {
@@ -20,11 +20,18 @@ const existenClientes = computed(() => {
 
 const actualizarEstado = (data) => {
   const { id, estado } = data;
-  ClienteService.cambiarEstado(id, { estadp: !estado })
+  ClienteService.cambiarEstado(id, { estado: !estado })
     .then(() => {
       const i = clientes.value.findIndex(cliente => cliente.id === id);
       clientes.value[i].estado = !estado;
-    }).catch( err => console.log(err))
+    }).catch((err) => console.log("Error Actualizar"));
+};
+
+const eliminarCliente = id => {
+  ClienteService.eliminarCliente(id)
+    .then(()=> {
+      clientes.value = clientes.value.filter(cliente => cliente.id !== id);
+    }).catch((err) => console.log("Error Eliminar"));
 }
 </script>
 
@@ -76,6 +83,7 @@ const actualizarEstado = (data) => {
                 :key="cliente.id"
                 :cliente="cliente"
                 @actualizar-estado="actualizarEstado"
+                @eliminar-cliente="eliminarCliente"
               />
             </tbody>
           </table>

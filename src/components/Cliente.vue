@@ -8,7 +8,7 @@ const props = defineProps({
   },
 });
 
-defineEmits(["actualizar-estado"]);
+defineEmits(["actualizar-estado", 'eliminar-cliente']);
 
 const nombreCliente = computed(() => {
   return props.cliente.nombre + " " + props.cliente.apellido;
@@ -50,6 +50,7 @@ const estadoCliente = computed(() => {
       >
       <button
         class="border border-red-600 hover:border-red-900 text-red-600 hover:text-red-900 uppercase text-xs font-medium rounded px-2 py-1"
+        @click="$emit('eliminar-cliente', cliente.id)"
       >
         Eliminar
       </button>
