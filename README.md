@@ -1,35 +1,25 @@
-# crm-vue
+# Administrador de Clientes (crm-vue)
 
-This template should help get you started developing with Vue 3 in Vite.
+Este es un proyecto básico realizado en Vue 3 donde se estudian los conceptos de peticiones HTTP, para crear, actualizar y borrar clientes en una tabla.
 
-## Recommended IDE Setup
+![administrador de clientes](https://i.imgur.com/8nBM84s.png)
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Instalación
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
+- Clonar el repositorio
+- Ejecutar 
 ```sh
-npm install
+npm i
+```
+- Instalar de manera global **json-server**
+```sh
+npm i -g json-server
 ```
 
-### Compile and Hot-Reload for Development
-
+## Ejecutar proyecto
+- Dentro del directorio del proyecto, ejecutar los siguientes dos comandos
 ```sh
 npm run dev
-```
 
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-
-### Comandos del curso
-```sh
 json-server --watch db.json --port 4000
 ```
